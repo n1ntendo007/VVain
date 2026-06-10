@@ -78,6 +78,10 @@ h1 {
 .order-item span {
     display: inline-block;
 }
+.order-item .time {
+    min-width: 50px;
+    text-align: right;
+}
 button {
     cursor: pointer;
     border: none;
@@ -105,9 +109,4 @@ input {
 }
 #back-btn:hover {
     background-color: #333;
-}
-.time {
-    margin-right: 10px;
-    min-width: 50px;
-    text-align: right;
 }
