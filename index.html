@@ -2,9 +2,12 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
     <meta name="theme-color" content="#cf2f3a" />
-    <meta name="description" content="VVain — локальный блокнот заказов официанта." />
+    <meta name="description" content="VVain — приложение официанта со столиками, заказами и чаевыми." />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="VVain" />
@@ -15,16 +18,15 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="app-shell" id="app-shell">
-      <section class="screen screen--tables" id="tables-screen" aria-label="Схема столиков">
-        <header class="app-header app-header--tables">
+    <div class="app-shell">
+      <section class="screen screen--tables" id="tables-screen" aria-label="Главный экран со столиками">
+        <header class="app-header">
           <div class="header-row header-row--tables">
             <h1 class="brand">VVain</h1>
             <div class="role" aria-label="Роль пользователя: официант">
               <svg class="role__icon" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M12 12.3a3.7 3.7 0 1 0 0-7.4 3.7 3.7 0 0 0 0 7.4Z" />
                 <path d="M6.2 19.2v-1.1c0-2 1.6-3.6 3.6-3.6h4.4c2 0 3.6 1.6 3.6 3.6v1.1" />
-                <path d="m17.1 8.2 1.7 1.7 2.7-3" />
               </svg>
               <span>Официант</span>
               <svg class="role__chevron" viewBox="0 0 20 20" aria-hidden="true">
@@ -35,46 +37,129 @@
         </header>
 
         <main class="tables-content">
-          <div class="floor-plan" aria-label="Выберите столик">
+          <div class="floor-plan" aria-label="Схема столиков">
             <div class="floor-divider" aria-hidden="true"></div>
 
-            <button class="table table--square pos-13" type="button" data-table-id="13" aria-label="Стол 13"><span>13</span></button>
-            <button class="table table--square pos-14" type="button" data-table-id="14" aria-label="Стол 14"><span>14</span></button>
-            <button class="table table--square pos-12" type="button" data-table-id="12" aria-label="Стол 12"><span>12</span></button>
-            <button class="table table--square pos-15" type="button" data-table-id="15" aria-label="Стол 15"><span>15</span></button>
-            <button class="table table--square pos-11" type="button" data-table-id="11" aria-label="Стол 11"><span>11</span></button>
-            <button class="table table--square pos-16" type="button" data-table-id="16" aria-label="Стол 16"><span>16</span></button>
-            <button class="table table--square pos-10" type="button" data-table-id="10" aria-label="Стол 10"><span>10</span></button>
-            <button class="table table--square pos-17" type="button" data-table-id="17" aria-label="Стол 17"><span>17</span></button>
+            <button class="table table--square pos-13" type="button" data-table-id="13" aria-label="Стол 13">
+              <span class="table__number">13</span>
+              <span class="table__time"></span>
+              <span class="table__count" hidden>0</span>
+            </button>
+            <button class="table table--square pos-14" type="button" data-table-id="14" aria-label="Стол 14">
+              <span class="table__number">14</span>
+              <span class="table__time"></span>
+              <span class="table__count" hidden>0</span>
+            </button>
+            <button class="table table--square pos-12" type="button" data-table-id="12" aria-label="Стол 12">
+              <span class="table__number">12</span>
+              <span class="table__time"></span>
+              <span class="table__count" hidden>0</span>
+            </button>
+            <button class="table table--square pos-15" type="button" data-table-id="15" aria-label="Стол 15">
+              <span class="table__number">15</span>
+              <span class="table__time"></span>
+              <span class="table__count" hidden>0</span>
+            </button>
+            <button class="table table--square pos-11" type="button" data-table-id="11" aria-label="Стол 11">
+              <span class="table__number">11</span>
+              <span class="table__time"></span>
+              <span class="table__count" hidden>0</span>
+            </button>
+            <button class="table table--square pos-16" type="button" data-table-id="16" aria-label="Стол 16">
+              <span class="table__number">16</span>
+              <span class="table__time"></span>
+              <span class="table__count" hidden>0</span>
+            </button>
+            <button class="table table--square pos-10" type="button" data-table-id="10" aria-label="Стол 10">
+              <span class="table__number">10</span>
+              <span class="table__time"></span>
+              <span class="table__count" hidden>0</span>
+            </button>
+            <button class="table table--square pos-17" type="button" data-table-id="17" aria-label="Стол 17">
+              <span class="table__number">17</span>
+              <span class="table__time"></span>
+              <span class="table__count" hidden>0</span>
+            </button>
 
-            <button class="table table--circle pos-5" type="button" data-table-id="5" aria-label="Стол 5"><span>5</span></button>
-            <button class="table table--square pos-4" type="button" data-table-id="4" aria-label="Стол 4"><span>4</span></button>
-            <button class="table table--circle pos-6" type="button" data-table-id="6" aria-label="Стол 6"><span>6</span></button>
-            <button class="table table--square pos-3" type="button" data-table-id="3" aria-label="Стол 3"><span>3</span></button>
-            <button class="table table--circle pos-7" type="button" data-table-id="7" aria-label="Стол 7"><span>7</span></button>
-            <button class="table table--square pos-2" type="button" data-table-id="2" aria-label="Стол 2"><span>2</span></button>
-            <button class="table table--circle pos-8" type="button" data-table-id="8" aria-label="Стол 8"><span>8</span></button>
-            <button class="table table--square pos-1" type="button" data-table-id="1" aria-label="Стол 1"><span>1</span></button>
-            <button class="table table--circle pos-9" type="button" data-table-id="9" aria-label="Стол 9"><span>9</span></button>
+            <button class="table table--circle pos-5" type="button" data-table-id="5" aria-label="Стол 5">
+              <span class="table__number">5</span>
+              <span class="table__time"></span>
+              <span class="table__count" hidden>0</span>
+            </button>
+            <button class="table table--square pos-4" type="button" data-table-id="4" aria-label="Стол 4">
+              <span class="table__number">4</span>
+              <span class="table__time"></span>
+              <span class="table__count" hidden>0</span>
+            </button>
+            <button class="table table--circle pos-6" type="button" data-table-id="6" aria-label="Стол 6">
+              <span class="table__number">6</span>
+              <span class="table__time"></span>
+              <span class="table__count" hidden>0</span>
+            </button>
+            <button class="table table--square pos-3" type="button" data-table-id="3" aria-label="Стол 3">
+              <span class="table__number">3</span>
+              <span class="table__time"></span>
+              <span class="table__count" hidden>0</span>
+            </button>
+            <button class="table table--circle pos-7" type="button" data-table-id="7" aria-label="Стол 7">
+              <span class="table__number">7</span>
+              <span class="table__time"></span>
+              <span class="table__count" hidden>0</span>
+            </button>
+            <button class="table table--square pos-2" type="button" data-table-id="2" aria-label="Стол 2">
+              <span class="table__number">2</span>
+              <span class="table__time"></span>
+              <span class="table__count" hidden>0</span>
+            </button>
+            <button class="table table--circle pos-8" type="button" data-table-id="8" aria-label="Стол 8">
+              <span class="table__number">8</span>
+              <span class="table__time"></span>
+              <span class="table__count" hidden>0</span>
+            </button>
+            <button class="table table--square pos-1" type="button" data-table-id="1" aria-label="Стол 1">
+              <span class="table__number">1</span>
+              <span class="table__time"></span>
+              <span class="table__count" hidden>0</span>
+            </button>
+            <button class="table table--circle pos-9" type="button" data-table-id="9" aria-label="Стол 9">
+              <span class="table__number">9</span>
+              <span class="table__time"></span>
+              <span class="table__count" hidden>0</span>
+            </button>
           </div>
+
+          <section class="tips-summary-card" aria-label="Итог чаевых за сегодня">
+            <div class="tips-summary-card__left">
+              <div class="tips-summary-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 3.8c-1.9 0-3.4 1.4-3.4 3.2 0 .8.3 1.5.8 2.1L6.5 12c-1 1.1-.9 2.8.3 3.7.5.4 1.1.6 1.8.6h7.1c1.5 0 2.7-1.2 2.7-2.7 0-.6-.2-1.2-.6-1.7l-2.6-2.8c.5-.6.8-1.3.8-2.1 0-1.8-1.5-3.2-3.4-3.2Z" />
+                  <path d="M5 18.2h6.4c1.5 0 2.8.8 3.5 2" />
+                  <path d="M17.2 17.1c1.9 0 3.4 1.5 3.4 3.4v.6h-6.8v-.6c0-1.9 1.5-3.4 3.4-3.4Z" />
+                  <path d="M17.2 18.8v3.5" />
+                  <path d="M15.4 20.6h3.6" />
+                </svg>
+              </div>
+              <div class="tips-summary-card__text">
+                <div class="tips-summary-card__label">Чаевые за сегодня</div>
+                <div class="tips-summary-card__amount" id="tips-total-main">0 ₽</div>
+              </div>
+            </div>
+            <button class="clear-tips-button" id="clear-tips-button" type="button">Очистить</button>
+          </section>
         </main>
       </section>
 
-      <section class="screen screen--orders" id="orders-screen" aria-label="Заказы столика" hidden>
-        <header class="app-header app-header--orders">
+      <section class="screen screen--orders" id="orders-screen" aria-label="Экран столика" hidden>
+        <header class="app-header">
           <div class="header-row header-row--orders">
-            <button class="icon-button icon-button--back" id="back-button" type="button" aria-label="Назад к столикам">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7" /><path d="M8 12h12" /></svg>
+            <button class="icon-button icon-button--back" id="back-button" type="button" aria-label="Назад">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m15 5-7 7 7 7" />
+                <path d="M8.5 12H19" />
+              </svg>
             </button>
             <h1 class="order-title" id="order-title">Стол 5</h1>
-            <div class="header-actions">
-              <time class="header-time" id="header-time">00:00</time>
-              <button class="icon-button icon-button--header-trash" id="header-clear-button" type="button" aria-label="Обнулить столик">
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M4 7h16" /><path d="M10 11v6" /><path d="M14 11v6" /><path d="M6.5 7 7.4 20h9.2l.9-13" /><path d="M9 7V4.8h6V7" />
-                </svg>
-              </button>
-            </div>
+            <time class="header-time" id="header-time">14:23</time>
           </div>
         </header>
 
@@ -97,17 +182,57 @@
 
           <ul class="order-list" id="order-list" aria-live="polite"></ul>
 
-          <button class="reset-button" id="reset-button" type="button">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M20 11a8 8 0 0 0-14.7-4.4L4 9" />
-              <path d="M4 4v5h5" />
-              <path d="M4 13a8 8 0 0 0 14.7 4.4L20 15" />
-              <path d="M20 20v-5h-5" />
-            </svg>
-            <span>Обнулить столик</span>
-          </button>
+          <section class="tips-card" aria-label="Чаевые столику">
+            <div class="tips-card__top">
+              <div class="tips-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M8 7.2c0-1.9 1.8-3.4 4-3.4s4 1.5 4 3.4-1.8 3.4-4 3.4-4-1.5-4-3.4Z" />
+                  <path d="M6.3 11.6h11.4c1.4 0 2.5 1.1 2.5 2.5v2.1c0 1.4-1.1 2.5-2.5 2.5H6.3c-1.4 0-2.5-1.1-2.5-2.5v-2.1c0-1.4 1.1-2.5 2.5-2.5Z" />
+                  <path d="M12 5.7v2.8" />
+                  <path d="M9.7 15.2h4.6" />
+                </svg>
+              </div>
+              <div class="tips-card__title">Чаевые</div>
+              <div class="tips-card__sum" id="tips-total-table">0 ₽</div>
+            </div>
+            <button class="tips-add-button" id="open-tip-sheet-button" type="button">
+              <span>Чаевые столику</span>
+              <span class="tips-add-button__plus" aria-hidden="true">+</span>
+            </button>
+          </section>
         </main>
       </section>
+
+      <div class="sheet-backdrop" id="tip-sheet-backdrop" hidden>
+        <section class="tip-sheet" id="tip-sheet" aria-label="Добавление чаевых" role="dialog" aria-modal="true">
+          <div class="tip-sheet__header">
+            <h2 class="tip-sheet__title" id="tip-sheet-title">Чаевые к столику 5</h2>
+            <button class="tip-sheet__close" id="close-tip-sheet-button" type="button" aria-label="Закрыть">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m6 6 12 12" />
+                <path d="M18 6 6 18" />
+              </svg>
+            </button>
+          </div>
+          <div class="tip-sheet__presets" id="tip-presets">
+            <button type="button" data-amount="50">50 ₽</button>
+            <button type="button" data-amount="100">100 ₽</button>
+            <button type="button" data-amount="200">200 ₽</button>
+            <button type="button" data-amount="500">500 ₽</button>
+          </div>
+          <label class="visually-hidden" for="custom-tip-input">Другая сумма чаевых</label>
+          <input
+            class="tip-sheet__input"
+            id="custom-tip-input"
+            type="number"
+            min="1"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            placeholder="Другая сумма"
+          />
+          <button class="tip-sheet__submit" id="submit-tip-button" type="button">Добавить чаевые</button>
+        </section>
+      </div>
 
       <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
     </div>
