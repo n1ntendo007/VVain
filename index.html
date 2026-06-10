@@ -11,13 +11,33 @@
 <body>
     <header>VVain</header>
     <main>
-        <div class="tables-container" id="tables-container"></div>
+        <div class="tables-container">
+            <!-- Фиксированное количество столиков, как на скрине -->
+            <div class="table empty" data-table="1">1</div>
+            <div class="table empty" data-table="2">2</div>
+            <div class="table empty" data-table="3">3</div>
+            <div class="table empty" data-table="4">4</div>
+            <div class="table empty" data-table="5">5</div>
+            <div class="table empty" data-table="6">6</div>
+            <div class="table empty" data-table="7">7</div>
+            <div class="table empty" data-table="8">8</div>
+            <div class="table empty" data-table="9">9</div>
+            <div class="table empty" data-table="10">10</div>
+            <div class="table empty" data-table="11">11</div>
+            <div class="table empty" data-table="12">12</div>
+            <div class="table empty" data-table="13">13</div>
+            <div class="table empty" data-table="14">14</div>
+            <div class="table empty" data-table="15">15</div>
+            <div class="table empty" data-table="16">16</div>
+            <div class="table empty" data-table="17">17</div>
+        </div>
     </main>
 
+    <!-- Модальное окно заказов -->
     <div id="order-modal" class="modal">
         <div class="modal-content">
             <h2 id="modal-title"></h2>
-            <input type="text" id="dish-input" placeholder="Введите блюдо...">
+            <input type="text" id="dish-input" placeholder="Введите блюдо">
             <ul id="order-list"></ul>
             <button id="reset-table">Обнулить столик</button>
             <button id="close-modal">Закрыть</button>
