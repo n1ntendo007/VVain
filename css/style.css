@@ -5,26 +5,28 @@ body {
     background-color: #fff;
 }
 .container {
-    max-width: 500px;
+    max-width: 420px;
     margin: 0 auto;
-    padding: 15px;
+    padding: 10px;
 }
 h1 {
     text-align: center;
     color: #b33a3a;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    font-size: 28px;
 }
 .tables-container {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 .tables-left, .tables-right {
     display: grid;
-    gap: 15px;
+    gap: 10px;
 }
 .tables-left {
     grid-template-columns: repeat(2, 70px);
-    margin-right: 20px;
+    margin-right: 10px;
 }
 .tables-right {
     grid-template-columns: 70px;
@@ -35,8 +37,8 @@ h1 {
     justify-content: center;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
     min-height: 50px;
+    transition: 0.2s;
 }
 .table {
     background-color: #fff5c2;
@@ -57,30 +59,36 @@ h1 {
 .separator {
     width: 2px;
     background-color: #b33a3a;
-    margin: 0 15px;
-}
-input, button {
-    font-size: 16px;
+    margin: 0 10px;
 }
 .orders-container {
-    max-width: 500px;
+    max-width: 420px;
     margin: 0 auto;
-    padding: 15px;
+    padding: 10px;
 }
 .order-item {
     display: flex;
     justify-content: space-between;
-    padding: 8px;
+    padding: 10px;
     border-bottom: 1px solid #eee;
 }
 button {
     cursor: pointer;
     border: none;
     border-radius: 6px;
-    padding: 5px 10px;
+    padding: 6px 10px;
     background-color: #b33a3a;
     color: #fff;
+    font-size: 16px;
 }
 button:hover {
     background-color: #8a2929;
+}
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
 }
