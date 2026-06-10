@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VVain</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <header>VVain</header>
+    <main>
+        <div class="tables-container" id="tables-container"></div>
+    </main>
+
+    <div id="order-modal" class="modal">
+        <div class="modal-content">
+            <h2 id="modal-title"></h2>
+            <input type="text" id="dish-input" placeholder="Введите блюдо...">
+            <ul id="order-list"></ul>
+            <button id="reset-table">Обнулить столик</button>
+            <button id="close-modal">Закрыть</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
