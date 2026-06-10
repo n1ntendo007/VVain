@@ -14,7 +14,7 @@ function render() {
     data[tableNum].forEach((item, idx) => {
         const div = document.createElement('div');
         div.className = 'order-item';
-        div.innerHTML = `<span>${item.name}</span> <span>${item.time}</span> <button data-idx="${idx}">X</button>`;
+        div.innerHTML = `<span>${item.name}</span> <span class="time">${item.time}</span> <button data-idx="${idx}">X</button>`;
         div.querySelector('button').addEventListener('click', e => {
             const index = e.target.dataset.idx;
             data[tableNum].splice(index, 1);

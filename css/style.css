@@ -18,18 +18,17 @@ h1 {
 .tables-container {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
 }
 .tables-left, .tables-right {
     display: grid;
-    gap: 10px;
+    gap: 12px;
 }
 .tables-left {
-    grid-template-columns: repeat(2, 70px);
-    margin-right: 10px;
+    grid-template-columns: repeat(2, 80px);
+    margin-right: 12px;
 }
 .tables-right {
-    grid-template-columns: 70px;
+    grid-template-columns: 80px;
 }
 .table, .table-circle {
     display: flex;
@@ -37,7 +36,7 @@ h1 {
     justify-content: center;
     font-weight: bold;
     cursor: pointer;
-    min-height: 50px;
+    min-height: 60px;
     transition: 0.2s;
 }
 .table {
@@ -47,8 +46,8 @@ h1 {
 .table-circle {
     background-color: #fff5c2;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
 }
 .table.empty, .table-circle.empty {
     background-color: #d4f7d4;
@@ -72,9 +71,12 @@ h1 {
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid #eee;
-    border-radius: 8px;
+    border-radius: 10px;
     margin-bottom: 5px;
     background-color: #fff9f2;
+}
+.order-item span {
+    display: inline-block;
 }
 button {
     cursor: pointer;
@@ -103,4 +105,9 @@ input {
 }
 #back-btn:hover {
     background-color: #333;
+}
+.time {
+    margin-right: 10px;
+    min-width: 50px;
+    text-align: right;
 }
