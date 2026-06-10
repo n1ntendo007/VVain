@@ -1,58 +1,86 @@
 
 body {
+    margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    margin: 0; padding: 0; background: #fff;
+    background-color: #fff;
 }
-.header {
-    text-align: center;
-    background: #b33a3a;
-    color: white;
-    font-size: 24px;
+.container {
+    max-width: 500px;
+    margin: 0 auto;
     padding: 15px;
+}
+h1 {
+    text-align: center;
+    color: #b33a3a;
+    margin-bottom: 20px;
 }
 .tables-container {
     display: flex;
     justify-content: center;
-    padding: 20px;
 }
 .tables-left, .tables-right {
     display: grid;
     gap: 15px;
 }
 .tables-left {
-    grid-template-columns: repeat(2, 80px);
+    grid-template-columns: repeat(2, 70px);
     margin-right: 20px;
 }
 .tables-right {
-    grid-template-columns: 80px;
+    grid-template-columns: 70px;
 }
 .table, .table-circle {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 60px;
-    cursor: pointer;
     font-weight: bold;
+    cursor: pointer;
     transition: 0.3s;
+    min-height: 50px;
 }
 .table {
-    background: #fff5c2;
+    background-color: #fff5c2;
     border-radius: 12px;
 }
 .table-circle {
-    background: #fff5c2;
+    background-color: #fff5c2;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
 }
 .table.empty, .table-circle.empty {
-    background: #d4f7d4;
+    background-color: #d4f7d4;
 }
 .table.has-orders, .table-circle.has-orders {
-    background: #fff5c2;
+    background-color: #fff5c2;
 }
 .separator {
     width: 2px;
-    background: #b33a3a;
-    margin: 0 20px;
+    background-color: #b33a3a;
+    margin: 0 15px;
+}
+input, button {
+    font-size: 16px;
+}
+.orders-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 15px;
+}
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+}
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    background-color: #b33a3a;
+    color: #fff;
+}
+button:hover {
+    background-color: #8a2929;
 }

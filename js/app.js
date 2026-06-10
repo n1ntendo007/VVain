@@ -1,8 +1,8 @@
 
 const tables = document.querySelectorAll('.table, .table-circle');
+let data = JSON.parse(localStorage.getItem('VVainData')) || {};
 tables.forEach(t => {
     const tableNum = t.dataset.table;
-    let data = JSON.parse(localStorage.getItem('VVainData')) || {};
     if (!data[tableNum] || data[tableNum].length === 0) {
         t.classList.add('empty');
     } else {

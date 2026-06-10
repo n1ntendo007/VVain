@@ -2,18 +2,19 @@
 const urlParams = new URLSearchParams(window.location.search);
 const tableNum = urlParams.get('table');
 document.getElementById('table-header').innerText = 'Стол ' + tableNum;
-
 let data = JSON.parse(localStorage.getItem('VVainData')) || {};
 if (!data[tableNum]) data[tableNum] = [];
 const ordersList = document.getElementById('orders-list');
 const input = document.getElementById('order-input');
 const clearBtn = document.getElementById('clear-btn');
+const backBtn = document.getElementById('back-btn');
 
 function render() {
     ordersList.innerHTML = '';
     data[tableNum].forEach((item, idx) => {
         const div = document.createElement('div');
-        div.innerHTML = `${item.name} (${item.time}) <button data-idx="${idx}">X</button>`;
+        div.className = 'order-item';
+        div.innerHTML = `<span>${item.name} (${item.time})</span> <button data-idx="${idx}">X</button>`;
         div.querySelector('button').addEventListener('click', e => {
             const index = e.target.dataset.idx;
             data[tableNum].splice(index, 1);
@@ -39,6 +40,10 @@ clearBtn.addEventListener('click', () => {
     data[tableNum] = [];
     localStorage.setItem('VVainData', JSON.stringify(data));
     render();
+});
+
+backBtn.addEventListener('click', () => {
+    window.location.href = 'index.html';
 });
 
 render();
