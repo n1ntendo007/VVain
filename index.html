@@ -13,10 +13,10 @@
     <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
     <link rel="icon" href="./icons/favicon-32.png" sizes="32x32" type="image/png" />
     <style>[hidden]{display:none!important}</style>
-    <link rel="stylesheet" href="./styles.v8.css" />
+    <link rel="stylesheet" href="./styles.v9.css" />
   </head>
   <body>
-    <div class="app-shell" id="app-shell" data-build="v8">
+    <div class="app-shell" id="app-shell" data-build="v9">
       <section class="screen" id="home-screen" aria-label="Схема столиков">
         <header class="topbar">
           <div class="topbar__row topbar__row--home">
@@ -79,6 +79,9 @@
             </button>
             <h2 class="table-title" id="table-title">Стол 5</h2>
             <time class="table-clock" id="table-clock">00:00</time>
+            <button class="icon-button icon-button--outline" id="clear-table-button" type="button" aria-label="Очистить столик">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14" /><path d="M10 11v6" /><path d="M14 11v6" /><path d="M7 7 8 20h8l1-13" /><path d="M9 7V5h6v2" /></svg>
+            </button>
           </div>
         </header>
 
@@ -109,6 +112,6 @@
       <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
     </div>
 
-    <script src="./app.v8.js" defer></script>
+    <script src="./app.v9.js" defer></script>
   </body>
 </html>
