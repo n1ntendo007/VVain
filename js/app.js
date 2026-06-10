@@ -1,92 +1,90 @@
 
-const tablesData = {};
-const tableCount = 17;
+const tableCount = 9;
+const tablesContainer = document.querySelector('.tables');
 
-function formatTime(date) {
-    return date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-}
+// Загружаем данные из localStorage
+let tableData = JSON.parse(localStorage.getItem('VVainData')) || {};
 
-function renderTables() {
-    const container = document.querySelector('.tables');
-    container.innerHTML = '';
-    for (let i = 1; i <= tableCount; i++) {
-        const table = document.createElement('div');
-        table.classList.add('table');
-        table.id = 'table-' + i;
-
-        const h2 = document.createElement('h2');
-        h2.textContent = 'Столик ' + i;
-        table.appendChild(h2);
-
-        const ordersDiv = document.createElement('div');
-        ordersDiv.classList.add('orders');
-        table.appendChild(ordersDiv);
-
-        const btnClear = document.createElement('button');
-        btnClear.textContent = 'Обнулить столик';
-        btnClear.addEventListener('click', (e) => {
-            e.stopPropagation();
-            tablesData[i] = [];
-            saveData();
-            updateTable(i);
-        });
-        table.appendChild(btnClear);
-
-        table.addEventListener('click', () => {
-            const dish = prompt('Введите блюдо для столика ' + i);
-            if (dish) {
-                const time = formatTime(new Date());
-                if (!tablesData[i]) tablesData[i] = [];
-                tablesData[i].push({name: dish, time});
-                saveData();
-                updateTable(i);
-            }
-        });
-
-        container.appendChild(table);
-        updateTable(i);
-    }
-}
-
-function updateTable(i) {
-    const table = document.getElementById('table-' + i);
-    const ordersDiv = table.querySelector('.orders');
-    ordersDiv.innerHTML = '';
-    const orders = tablesData[i] || [];
-    if (orders.length === 0) {
-        table.classList.add('empty');
-        table.classList.remove('filled');
+// Создаем столики
+for (let i = 1; i <= tableCount; i++) {
+    const tableDiv = document.createElement('div');
+    tableDiv.classList.add('table');
+    tableDiv.dataset.table = i;
+    tableDiv.innerHTML = `<h2>Стол ${i}</h2>`;
+    
+    // Подсветка по статусу
+    if (!tableData[i] || tableData[i].length === 0) {
+        tableDiv.classList.add('empty');
     } else {
-        table.classList.add('filled');
-        table.classList.remove('empty');
+        tableDiv.classList.add('has-orders');
     }
-    orders.forEach((order, idx) => {
-        const div = document.createElement('div');
-        div.classList.add('order');
-        div.innerHTML = \`\${order.name} (\${order.time})\`;
-        const delBtn = document.createElement('button');
-        delBtn.textContent = 'Удалить';
-        delBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            tablesData[i].splice(idx, 1);
-            saveData();
-            updateTable(i);
+
+    tableDiv.addEventListener('click', () => openTable(tableDiv.dataset.table));
+    tablesContainer.appendChild(tableDiv);
+}
+
+function openTable(tableNumber) {
+    const orders = tableData[tableNumber] || [];
+    const tableDiv = document.querySelector(`.table[data-table='${tableNumber}']`);
+    tableDiv.innerHTML = `<h2>Стол ${tableNumber}</h2>` +
+                         `<div class="orders-container"></div>` +
+                         `<input type="text" placeholder="Добавить блюдо и Enter">` +
+                         `<button class="clear-btn">Обнулить столик</button>`;
+    const ordersContainer = tableDiv.querySelector('.orders-container');
+    const input = tableDiv.querySelector('input');
+    const clearBtn = tableDiv.querySelector('.clear-btn');
+
+    function renderOrders() {
+        ordersContainer.innerHTML = '';
+        orders.forEach((order, index) => {
+            const div = document.createElement('div');
+            div.classList.add('order-item');
+            div.innerHTML = `<span>${order.name} (${order.time})</span>` +
+                            `<button class="delete-btn">X</button>`;
+            div.querySelector('.delete-btn').addEventListener('click', () => {
+                orders.splice(index, 1);
+                saveData();
+                renderOrders();
+                updateTableHighlight(tableNumber);
+            });
+            ordersContainer.appendChild(div);
         });
-        div.appendChild(delBtn);
-        ordersDiv.appendChild(div);
+    }
+
+    input.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' && input.value.trim() !== '') {
+            const now = new Date();
+            const timeStr = now.getHours().toString().padStart(2,'0') + ':' + now.getMinutes().toString().padStart(2,'0');
+            orders.push({name: input.value.trim(), time: timeStr});
+            input.value = '';
+            saveData();
+            renderOrders();
+            updateTableHighlight(tableNumber);
+        }
     });
+
+    clearBtn.addEventListener('click', () => {
+        orders.length = 0;
+        saveData();
+        renderOrders();
+        updateTableHighlight(tableNumber);
+    });
+
+    renderOrders();
 }
 
 function saveData() {
-    localStorage.setItem('VVainData', JSON.stringify(tablesData));
+    localStorage.setItem('VVainData', JSON.stringify(tableData));
 }
 
-function loadData() {
-    const saved = localStorage.getItem('VVainData');
-    if (saved) {
-        Object.assign(tablesData, JSON.parse(saved));
+function updateTableHighlight(tableNumber) {
+    const tableDiv = document.querySelector(`.table[data-table='${tableNumber}']`);
+    if (!tableData[tableNumber]) tableData[tableNumber] = [];
+    if (tableData[tableNumber].length === 0) {
+        tableDiv.classList.remove('has-orders');
+        tableDiv.classList.add('empty');
+    } else {
+        tableDiv.classList.remove('empty');
+        tableDiv.classList.add('has-orders');
     }
 }
-
-loadData();
-renderTables();
