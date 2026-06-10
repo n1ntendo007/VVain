@@ -12,6 +12,30 @@
   const backButton = document.getElementById("back-button");
   const dishForm = document.getElementById("dish-form");
   const dishInput = document.getElementById("dish-input");
+
+
+  // Keep the application frame static on mobile devices.
+  document.addEventListener("gesturestart", (event) => event.preventDefault(), { passive: false });
+  document.addEventListener("gesturechange", (event) => event.preventDefault(), { passive: false });
+  document.addEventListener("gestureend", (event) => event.preventDefault(), { passive: false });
+  document.addEventListener(
+    "touchmove",
+    (event) => {
+      if (event.touches.length > 1) event.preventDefault();
+    },
+    { passive: false },
+  );
+
+  let lastTouchEnd = 0;
+  document.addEventListener(
+    "touchend",
+    (event) => {
+      const now = Date.now();
+      if (now - lastTouchEnd <= 300) event.preventDefault();
+      lastTouchEnd = now;
+    },
+    { passive: false },
+  );
   const orderList = document.getElementById("order-list");
   const resetButton = document.getElementById("reset-button");
   const headerClearButton = document.getElementById("header-clear-button");
