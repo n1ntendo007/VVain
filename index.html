@@ -1,49 +1,117 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#cf2f3a" />
+    <meta name="description" content="VVain — локальный блокнот заказов официанта." />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="VVain" />
     <title>VVain</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="manifest" href="manifest.json">
-</head>
-<body>
-    <header>VVain</header>
-    <main>
-        <div class="tables-container">
-            <!-- Фиксированное количество столиков, как на скрине -->
-            <div class="table empty" data-table="1">1</div>
-            <div class="table empty" data-table="2">2</div>
-            <div class="table empty" data-table="3">3</div>
-            <div class="table empty" data-table="4">4</div>
-            <div class="table empty" data-table="5">5</div>
-            <div class="table empty" data-table="6">6</div>
-            <div class="table empty" data-table="7">7</div>
-            <div class="table empty" data-table="8">8</div>
-            <div class="table empty" data-table="9">9</div>
-            <div class="table empty" data-table="10">10</div>
-            <div class="table empty" data-table="11">11</div>
-            <div class="table empty" data-table="12">12</div>
-            <div class="table empty" data-table="13">13</div>
-            <div class="table empty" data-table="14">14</div>
-            <div class="table empty" data-table="15">15</div>
-            <div class="table empty" data-table="16">16</div>
-            <div class="table empty" data-table="17">17</div>
-        </div>
-    </main>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+    <link rel="icon" href="./icons/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell" id="app-shell">
+      <section class="screen screen--tables" id="tables-screen" aria-label="Схема столиков">
+        <header class="app-header app-header--tables">
+          <div class="header-row header-row--tables">
+            <h1 class="brand">VVain</h1>
+            <div class="role" aria-label="Роль пользователя: официант">
+              <svg class="role__icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 12.3a3.7 3.7 0 1 0 0-7.4 3.7 3.7 0 0 0 0 7.4Z" />
+                <path d="M6.2 19.2v-1.1c0-2 1.6-3.6 3.6-3.6h4.4c2 0 3.6 1.6 3.6 3.6v1.1" />
+                <path d="m17.1 8.2 1.7 1.7 2.7-3" />
+              </svg>
+              <span>Официант</span>
+              <svg class="role__chevron" viewBox="0 0 20 20" aria-hidden="true">
+                <path d="m5 7.5 5 5 5-5" />
+              </svg>
+            </div>
+          </div>
+        </header>
 
-    <!-- Модальное окно заказов -->
-    <div id="order-modal" class="modal">
-        <div class="modal-content">
-            <h2 id="modal-title"></h2>
-            <input type="text" id="dish-input" placeholder="Введите блюдо">
-            <ul id="order-list"></ul>
-            <button id="reset-table">Обнулить столик</button>
-            <button id="close-modal">Закрыть</button>
-        </div>
+        <main class="tables-content">
+          <div class="floor-plan" aria-label="Выберите столик">
+            <div class="floor-divider" aria-hidden="true"></div>
+
+            <button class="table table--square pos-13" type="button" data-table-id="13" aria-label="Стол 13"><span>13</span></button>
+            <button class="table table--square pos-14" type="button" data-table-id="14" aria-label="Стол 14"><span>14</span></button>
+            <button class="table table--square pos-12" type="button" data-table-id="12" aria-label="Стол 12"><span>12</span></button>
+            <button class="table table--square pos-15" type="button" data-table-id="15" aria-label="Стол 15"><span>15</span></button>
+            <button class="table table--square pos-11" type="button" data-table-id="11" aria-label="Стол 11"><span>11</span></button>
+            <button class="table table--square pos-16" type="button" data-table-id="16" aria-label="Стол 16"><span>16</span></button>
+            <button class="table table--square pos-10" type="button" data-table-id="10" aria-label="Стол 10"><span>10</span></button>
+            <button class="table table--square pos-17" type="button" data-table-id="17" aria-label="Стол 17"><span>17</span></button>
+
+            <button class="table table--circle pos-5" type="button" data-table-id="5" aria-label="Стол 5"><span>5</span></button>
+            <button class="table table--square pos-4" type="button" data-table-id="4" aria-label="Стол 4"><span>4</span></button>
+            <button class="table table--circle pos-6" type="button" data-table-id="6" aria-label="Стол 6"><span>6</span></button>
+            <button class="table table--square pos-3" type="button" data-table-id="3" aria-label="Стол 3"><span>3</span></button>
+            <button class="table table--circle pos-7" type="button" data-table-id="7" aria-label="Стол 7"><span>7</span></button>
+            <button class="table table--square pos-2" type="button" data-table-id="2" aria-label="Стол 2"><span>2</span></button>
+            <button class="table table--circle pos-8" type="button" data-table-id="8" aria-label="Стол 8"><span>8</span></button>
+            <button class="table table--square pos-1" type="button" data-table-id="1" aria-label="Стол 1"><span>1</span></button>
+            <button class="table table--circle pos-9" type="button" data-table-id="9" aria-label="Стол 9"><span>9</span></button>
+          </div>
+        </main>
+      </section>
+
+      <section class="screen screen--orders" id="orders-screen" aria-label="Заказы столика" hidden>
+        <header class="app-header app-header--orders">
+          <div class="header-row header-row--orders">
+            <button class="icon-button icon-button--back" id="back-button" type="button" aria-label="Назад к столикам">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7" /><path d="M8 12h12" /></svg>
+            </button>
+            <h1 class="order-title" id="order-title">Стол 5</h1>
+            <div class="header-actions">
+              <time class="header-time" id="header-time">00:00</time>
+              <button class="icon-button icon-button--header-trash" id="header-clear-button" type="button" aria-label="Обнулить столик">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 7h16" /><path d="M10 11v6" /><path d="M14 11v6" /><path d="M6.5 7 7.4 20h9.2l.9-13" /><path d="M9 7V4.8h6V7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </header>
+
+        <main class="orders-content">
+          <form class="dish-form" id="dish-form" novalidate>
+            <label class="visually-hidden" for="dish-input">Введите блюдо</label>
+            <input
+              class="dish-input"
+              id="dish-input"
+              name="dish"
+              type="text"
+              maxlength="120"
+              placeholder="Введите блюдо..."
+              autocomplete="off"
+              autocapitalize="sentences"
+              enterkeyhint="done"
+              required
+            />
+          </form>
+
+          <ul class="order-list" id="order-list" aria-live="polite"></ul>
+
+          <button class="reset-button" id="reset-button" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20 11a8 8 0 0 0-14.7-4.4L4 9" />
+              <path d="M4 4v5h5" />
+              <path d="M4 13a8 8 0 0 0 14.7 4.4L20 15" />
+              <path d="M20 20v-5h-5" />
+            </svg>
+            <span>Обнулить столик</span>
+          </button>
+        </main>
+      </section>
+
+      <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
     </div>
 
-    <script src="script.js"></script>
-</body>
+    <script src="./app.js" defer></script>
+  </body>
 </html>
