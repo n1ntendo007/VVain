@@ -1,9 +1,9 @@
-const CACHE_NAME = "vvain-clean-cache-v9";
+const CACHE_NAME = "vvain-clean-cache-v10";
 const ASSETS = [
   "./",
   "./index.html",
-  "./styles.v9.css",
-  "./app.v9.js",
+  "./styles.v10.css",
+  "./app.v10.js",
   "./manifest.webmanifest",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
